@@ -1,0 +1,583 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --card-bg: #1a1a2e;
+    --card-bg-light: #16213e;
+    --bg-dark: #0f0f1e;
+    --bg-gradient-start: #1a1a2e;
+    --bg-gradient-end: #16213e;
+    --text-primary: #e2e8f0;
+    --text-secondary: #cbd5e0;
+    --text-light: #a0aec0;
+    --border-color: #2d3748;
+    --border-color-light: #4a5568;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 40px rgba(102, 126, 234, 0.3);
+    --accent-purple: #818cf8;
+    --accent-pink: #f472b6;
+    --success-color: #34d399;
+    --warning-color: #fbbf24;
+    --danger-color: #f87171;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 30px 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+
+.header-content {
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+.icon {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 2.5rem;
+}
+
+/* Cards */
+.glass-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.glass-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
+    border-color: var(--border-color-light);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+/* Selection Card */
+.selection-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.select-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-wrapper label {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.futuristic-select {
+    background: var(--card-bg-light);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    font-weight: 500;
+}
+
+.futuristic-select:hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+    background: rgba(129, 140, 248, 0.1);
+}
+
+.futuristic-select:focus {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
+    background: rgba(129, 140, 248, 0.15);
+}
+
+.futuristic-select option {
+    background: #374151;
+    color: #f3f4f6;
+    padding: 10px;
+}
+
+/* Modules Card */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin: -16px;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.modules-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.modules-table thead {
+    background: linear-gradient(135deg, rgba(129, 140, 248, 0.2), rgba(244, 114, 182, 0.2));
+}
+
+.modules-table th {
+    padding: 16px 14px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent-purple);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.modules-table td {
+    padding: 16px 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modules-table tbody tr {
+    transition: all 0.2s ease;
+    animation: slideInRow 0.3s ease-out;
+}
+
+.modules-table tbody tr:hover {
+    background: rgba(129, 140, 248, 0.1);
+}
+
+.modules-table input,
+.modules-table select {
+    width: 100%;
+    background: var(--card-bg-light);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    outline: none;
+    font-weight: 500;
+}
+
+.modules-table input:focus,
+.modules-table select:focus {
+    border-color: var(--accent-purple);
+    background: rgba(129, 140, 248, 0.15);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+}
+
+.modules-table input[type="number"] {
+    width: 100px;
+}
+
+.modules-table select {
+    width: 120px;
+    cursor: pointer;
+}
+
+.modules-table select option {
+    background: #374151;
+    color: #f3f4f6;
+    padding: 10px;
+}
+
+.remove-btn {
+    background: linear-gradient(135deg, #f87171, #ef4444);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.remove-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.empty-state.hidden {
+    display: none;
+}
+
+/* GPA Card */
+.gpa-card {
+    text-align: center;
+}
+
+.gpa-header {
+    margin-bottom: 32px;
+}
+
+.gpa-content {
+    margin-bottom: 32px;
+}
+
+.gpa-display {
+    padding: 40px;
+    background: var(--primary-gradient);
+    border-radius: 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.gpa-display::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.gpa-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.gpa-value {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.gpa-value.pulse {
+    animation: scalePulse 0.5s ease-out;
+}
+
+.credits-info {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-top: 12px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.deans-list-message {
+    padding: 20px 24px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-out;
+    box-shadow: var(--shadow-md);
+}
+
+.deans-list-message.success {
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(16, 185, 129, 0.2));
+    border: 2px solid var(--success-color);
+    color: var(--success-color);
+}
+
+.deans-list-message.warning {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.2));
+    border: 2px solid var(--warning-color);
+    color: var(--warning-color);
+}
+
+.deans-list-message.hidden {
+    display: none;
+}
+
+/* Button */
+.neon-button {
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.neon-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.neon-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.neon-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+}
+
+.neon-button:active {
+    transform: translateY(0);
+}
+
+.neon-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--card-bg-light);
+    box-shadow: none;
+    color: var(--text-light);
+}
+
+.neon-button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.download-btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 16px;
+    font-size: 1.1rem;
+}
+
+.download-btn span {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* Grading Scale Card */
+.grading-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.grading-table thead {
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.2), rgba(236, 72, 153, 0.2));
+}
+
+.grading-table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent-pink);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.grading-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.grading-table tbody tr:hover {
+    background: rgba(244, 114, 182, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRow {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scalePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 15px;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+    }
+    
+    .glass-card {
+        padding: 24px;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .neon-button {
+        width: 100%;
+    }
+    
+    .gpa-value {
+        font-size: 3.5rem;
+    }
+    
+    .gpa-display {
+        padding: 30px 20px;
+    }
+    
+    .modules-table {
+        font-size: 0.85rem;
+    }
+    
+    .modules-table th,
+    .modules-table td {
+        padding: 12px 10px;
+    }
+    
+    .selection-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .gpa-value {
+        font-size: 3rem;
+    }
+    
+    .glass-card {
+        padding: 20px;
+    }
+}
