@@ -1,4 +1,7 @@
-// SLIIT Grading Scale
+/**
+ * SLIIT Grading Scale
+ * Defines the official SLIIT grading system with GPA values and marks ranges
+ */
 const GRADING_SCALE = {
     'A+': { gpa: 4.0, minMarks: 90, maxMarks: 100 },
     'A': { gpa: 4.0, minMarks: 80, maxMarks: 89 },
